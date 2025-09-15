@@ -1,0 +1,340 @@
+/* ---------------------------
+   styles.css — versão elegante
+   --------------------------- */
+
+/* box-sizing global */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* --- Base --- */
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  padding: 20px;
+  background: #0d1321; /* fundo mais moderno */
+  color: #e6eef8;
+  line-height: 1.6;
+  transition: background 0.3s, color 0.3s;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #f5f7fa;
+}
+
+/* --- Container de criação (topo) --- */
+.add-task-container,
+.add-task {
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto 24px auto;
+  display: flex;
+  gap: 10px;
+  padding: 0 14px;
+  align-items: center;
+}
+
+/* input do topo */
+#newTaskInput,
+#newTask {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  outline: none;
+  font-size: 1rem;
+  color: #f0f4ff;
+  transition: all 0.25s ease;
+}
+
+#newTaskInput::placeholder,
+#newTask::placeholder {
+  color: #9ca3af;
+}
+
+#newTaskInput:focus,
+#newTask:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 10px rgba(74, 144, 226, 0.4);
+}
+
+/* botão criar */
+#addTaskBtn {
+  padding: 12px 18px;
+  border: none;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #fff;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: transform 0.15s ease, box-shadow 0.2s;
+}
+
+#addTaskBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+}
+
+/* --- Container das tarefas — centraliza os cards --- */
+#tasks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 10px;
+  width: 100%;
+}
+
+/* Card da tarefa */
+.task {
+  width: 100%;
+  max-width: 680px;
+  margin: 0;
+  padding: 22px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #1a1d29, #11141f);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: #e6eef8;
+}
+
+.task:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6);
+}
+
+/* Header do card */
+.task-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.task-header h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #60a5fa;
+  flex: 1;
+}
+
+/* Inputs dentro dos cards */
+#tasks input[type="text"],
+#tasks textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #f0f4ff;
+  font-family: inherit;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+#tasks input[type="text"]::placeholder,
+#tasks textarea::placeholder {
+  color: #9ca3af;
+}
+
+#tasks input[type="text"]:focus,
+#tasks textarea:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 8px rgba(74, 144, 226, 0.4);
+}
+
+/* Botões gerais */
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.08);
+  color: #e6eef8;
+  font-size: 0.9rem;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Botão de excluir */
+.delete-task-btn,
+.delete-btn {
+  background: #b91c1c;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+.delete-task-btn:hover,
+.delete-btn:hover {
+  background: #dc2626;
+}
+
+/* Botão toggle (expand/collapse) */
+.toggle-btn {
+  background: transparent;
+  color: #60a5fa;
+  padding: 4px 8px;
+  font-size: 0.95rem;
+  border-radius: 6px;
+}
+
+/* Botão de adicionar subtarefa */
+.task-details>button,
+.task-header>button.add-subtask-btn {
+  background: #2563eb;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 10px;
+}
+
+.task-details>button:hover {
+  transform: translateY(-2px);
+  background: #1d4ed8;
+}
+
+/* Subtarefas */
+.subtasks {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.subtask {
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+  transition: background 0.12s ease;
+}
+
+.subtask:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.subtask.done {
+  text-decoration: line-through;
+  color: #888;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Mensagem tarefa concluída */
+.completed-message {
+  margin-top: 8px;
+  padding: 10px;
+  background: #065f46;
+  color: #d1fae5;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+/* Erros/textos pequenos */
+.error-message {
+  color: #f87171;
+  font-size: 0.85rem;
+  margin-top: 6px;
+}
+
+/* Detalhes (expansão animada) */
+.task-details {
+  margin-top: 10px;
+  padding: 0 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.36s ease, opacity 0.36s ease, padding 0.24s ease;
+  box-sizing: border-box;
+}
+
+.task-details.show {
+  max-height: 600px;
+  opacity: 1;
+  padding: 10px;
+}
+
+/* Textarea (anotações) */
+textarea {
+  width: 100%;
+  min-height: 70px;
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  color: #f0f4ff;
+  resize: vertical;
+  font-family: inherit;
+}
+
+/* ---- Subtask input wrapper (lado a lado) ---- */
+.subtask-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+/* garante que o input encolha corretamente dentro do flex */
+.subtask-input-wrapper .subtask-input {
+  flex: 1;
+  min-width: 0;         /* essencial para não quebrar a linha */
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  color: inherit;
+  font-size: 0.95rem;
+}
+
+/* botão + ao lado */
+.subtask-input-wrapper .subtask-add-btn {
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  min-width: 44px;
+}
+
+/* pequenas melhorias responsivas */
+@media (max-width: 420px) {
+  .subtask-input-wrapper .subtask-add-btn {
+    padding: 8px 10px;
+    min-width: 40px;
+  }
+}
+
+/* Responsividade */
+@media (max-width: 640px) {
+
+  .add-task-container,
+  .add-task {
+    padding: 0 12px;
+  }
+
+  #tasks .task {
+    max-width: calc(100% - 28px);
+    margin: 0 14px;
+  }
+}
